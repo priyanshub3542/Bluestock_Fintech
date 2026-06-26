@@ -1,0 +1,176 @@
+================================================================================
+  BLUESTOCK FINTECH — MUTUAL FUND CAPSTONE PROJECT
+  DATA QUALITY SUMMARY REPORT
+  Generated: 2026-06-26 10:25:56
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+1. DATASET OVERVIEW
+────────────────────────────────────────────────────────────────────────────────
+Dataset                            Rows   Cols    Nulls    Dupes       Size
+--------------------------------------------------------------------------------
+fund_master                          40     15        0        0    25.9 KB
+nav_history                      46,000      3        0        0  3369.3 KB
+aum_by_fund_house                    90      5        0        0    13.2 KB
+monthly_sip_inflows                  48      6       12        0     4.6 KB
+category_inflows                    144      3        0        0    17.3 KB
+industry_folio_count                 21      6        0        0     2.1 KB
+scheme_performance                   40     19        0        0    17.2 KB
+investor_transactions            32,778     13        0        0 18624.5 KB
+portfolio_holdings                  322      8        0        0    85.1 KB
+benchmark_indices                 8,050      3        0        0   995.1 KB
+--------------------------------------------------------------------------------
+TOTAL                            87,533              12        0
+
+────────────────────────────────────────────────────────────────────────────────
+2. MISSING VALUES DETAIL
+────────────────────────────────────────────────────────────────────────────────
+
+  monthly_sip_inflows:
+    • yoy_growth_pct: 12 missing (25.0%)
+
+────────────────────────────────────────────────────────────────────────────────
+3. DATA TYPE SUMMARY
+────────────────────────────────────────────────────────────────────────────────
+
+  fund_master:
+    • amfi_code: int64
+    • fund_house: str
+    • scheme_name: str
+    • category: str
+    • sub_category: str
+    • plan: str
+    • launch_date: str
+    • benchmark: str
+    • expense_ratio_pct: float64
+    • exit_load_pct: float64
+    • min_sip_amount: int64
+    • min_lumpsum_amount: int64
+    • fund_manager: str
+    • risk_category: str
+    • sebi_category_code: str
+
+  nav_history:
+    • amfi_code: int64
+    • date: str
+    • nav: float64
+
+  aum_by_fund_house:
+    • date: str
+    • fund_house: str
+    • aum_lakh_crore: float64
+    • aum_crore: int64
+    • num_schemes: int64
+
+  monthly_sip_inflows:
+    • month: str
+    • sip_inflow_crore: int64
+    • active_sip_accounts_crore: float64
+    • new_sip_accounts_lakh: float64
+    • sip_aum_lakh_crore: float64
+    • yoy_growth_pct: float64
+
+  category_inflows:
+    • month: str
+    • category: str
+    • net_inflow_crore: float64
+
+  industry_folio_count:
+    • month: str
+    • total_folios_crore: float64
+    • equity_folios_crore: float64
+    • debt_folios_crore: float64
+    • hybrid_folios_crore: float64
+    • others_folios_crore: float64
+
+  scheme_performance:
+    • amfi_code: int64
+    • scheme_name: str
+    • fund_house: str
+    • category: str
+    • plan: str
+    • return_1yr_pct: float64
+    • return_3yr_pct: float64
+    • return_5yr_pct: float64
+    • benchmark_3yr_pct: float64
+    • alpha: float64
+    • beta: float64
+    • sharpe_ratio: float64
+    • sortino_ratio: float64
+    • std_dev_ann_pct: float64
+    • max_drawdown_pct: float64
+    • aum_crore: int64
+    • expense_ratio_pct: float64
+    • morningstar_rating: int64
+    • risk_grade: str
+
+  investor_transactions:
+    • investor_id: str
+    • transaction_date: str
+    • amfi_code: int64
+    • transaction_type: str
+    • amount_inr: int64
+    • state: str
+    • city: str
+    • city_tier: str
+    • age_group: str
+    • gender: str
+    • annual_income_lakh: float64
+    • payment_mode: str
+    • kyc_status: str
+
+  portfolio_holdings:
+    • amfi_code: int64
+    • stock_symbol: str
+    • stock_name: str
+    • sector: str
+    • weight_pct: float64
+    • market_value_cr: float64
+    • current_price_inr: float64
+    • portfolio_date: str
+
+  benchmark_indices:
+    • date: str
+    • index_name: str
+    • close_value: float64
+
+────────────────────────────────────────────────────────────────────────────────
+4. AMFI CODE CROSS-VALIDATION
+────────────────────────────────────────────────────────────────────────────────
+  Fund Master codes:       40
+  NAV History codes:       40
+  Common (matched) codes:  40
+  Missing in NAV History:  0
+  Extra in NAV History:    0
+  ✅ Perfect match — all AMFI codes are consistent across datasets.
+
+────────────────────────────────────────────────────────────────────────────────
+5. KEY OBSERVATIONS & ANOMALIES
+────────────────────────────────────────────────────────────────────────────────
+
+  NAV History Date Range: 2022-01-03 to 2026-05-29
+  Negative NAV values: 0
+
+  Investor Transactions:
+    • Unique investors: 5000
+    • Transaction types: SIP, Redemption, Lumpsum
+    • Date range: 2024-01-01 to 2025-05-30
+    • Amount range: ₹400 to ₹597,498
+
+  Benchmark Indices:
+    • Indices tracked: NIFTY50, NIFTY100, NIFTY_MIDCAP150, BSE_SMALLCAP, NIFTY500, CRISIL_LIQUID, CRISIL_GILT
+    • Date range: 2022-01-03 to 2026-05-29
+
+────────────────────────────────────────────────────────────────────────────────
+6. CONCLUSION
+────────────────────────────────────────────────────────────────────────────────
+  Total datasets loaded: 10/10
+  Total records: 87,533
+  Total missing values: 12
+  Total duplicate rows: 0
+  AMFI code integrity: PASS ✅
+  Overall data quality: GOOD ✅
+
+================================================================================
+  END OF REPORT
+================================================================================
