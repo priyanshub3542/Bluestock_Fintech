@@ -29,9 +29,11 @@ env/
 Thumbs.db
 desktop.ini
 
-# Data (large files - uncomment if needed)
-# data/raw/*.csv
-# data/processed/*.csv
+# Generated database (regenerate with: python db_loader.py)
+*.db
+
+# Project PDF (keep locally, not needed in repo)
+*.pdf
 
 # Environment variables
 .env
