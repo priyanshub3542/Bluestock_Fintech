@@ -6,7 +6,8 @@
   <img src="https://img.shields.io/badge/Pandas-Data_Analysis-150458?logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?logo=plotly&logoColor=white" />
   <img src="https://img.shields.io/badge/Seaborn-Visualisation-76B7B2" />
-  <img src="https://img.shields.io/badge/Status-Day_3_Complete-brightgreen" />
+  <img src="https://img.shields.io/badge/SciPy-Statistics-8CAAE6?logo=scipy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Day_4_Complete-brightgreen" />
 </p>
 
 > **Bluestock Fintech Pvt. Ltd.** | Data Analyst Internship  
@@ -26,6 +27,7 @@ An end-to-end **Mutual Fund Analytics Pipeline** covering data ingestion, cleani
 - 🗄️ **Loads** into a star-schema **SQLite database** with 11 tables (Day 2)
 - 📊 **Analyses** with 10 analytical SQL queries (Day 2)
 - 📈 **Visualises** with 15+ charts using Plotly, Seaborn & Matplotlib (Day 3)
+- 🏆 **Ranks** all 40 funds with Sharpe, Sortino, Alpha/Beta, CAGR & Composite Scorecard (Day 4)
 - 📖 **Documents** everything in a comprehensive data dictionary (Day 2)
 
 ---
@@ -56,22 +58,14 @@ Bluestock_Fintech/
 │   └── queries.sql                   # 10 analytical SQL queries
 │
 ├── reports/
-│   ├── charts/                       # 15+ exported charts (PNG + HTML)
-│   │   ├── 01_nav_trends.png
+│   ├── charts/                       # 19+ exported charts (PNG + HTML)
+│   │   ├── 01_nav_trends.png         # Day 3: EDA Charts (1-15)
 │   │   ├── 02_aum_growth.png
-│   │   ├── 03_sip_inflow.html        # Interactive Plotly
-│   │   ├── 04_category_heatmap.png
-│   │   ├── 05_age_pie.png
-│   │   ├── 06_sip_boxplot.png
-│   │   ├── 07_gender_split.png
-│   │   ├── 08_geographic_state.png
-│   │   ├── 09_city_tier.png
-│   │   ├── 10_folio_growth.html      # Interactive Plotly
-│   │   ├── 11_correlation_matrix.png
-│   │   ├── 12_sector_donut.png
-│   │   ├── 13_expense_vs_return.png
-│   │   ├── 14_txn_volume.png
-│   │   └── 15_morningstar.png
+│   │   ├── 03–15 ... (13 more EDA charts)
+│   │   ├── 16_return_distribution.png # Day 4: Analytics Charts (16-19)
+│   │   ├── 17_alpha_beta_scatter.png
+│   │   ├── 18_fund_scorecard.png
+│   │   └── 19_benchmark_comparison.png
 │   └── data_quality_summary.txt
 │
 ├── notebooks/                        # Jupyter notebooks
@@ -84,6 +78,11 @@ Bluestock_Fintech/
 ├── eda_analysis.py                   # Day 3: Generate 15 charts as PNGs
 ├── generate_notebook.py              # Day 3: Build EDA_Analysis.ipynb
 ├── EDA_Analysis.ipynb                # Day 3: Jupyter notebook (29 cells)
+├── performance_analytics.py          # Day 4: Sharpe, Sortino, Alpha/Beta, Scorecard
+├── generate_notebook_day4.py         # Day 4: Build Performance_Analytics.ipynb
+├── Performance_Analytics.ipynb        # Day 4: Jupyter notebook (22 cells)
+├── fund_scorecard.csv                # Day 4: Composite fund rankings (0-100)
+├── alpha_beta.csv                    # Day 4: Alpha, Beta, R² for all funds
 │
 ├── data_dictionary.md                # Full column-level documentation
 ├── requirements.txt                  # Python dependencies
@@ -208,7 +207,46 @@ python eda_analysis.py
 
 # Day 3: Create Jupyter notebook
 python generate_notebook.py
+
+# Day 4: Performance analytics + fund scorecard
+python performance_analytics.py
+
+# Day 4: Create analytics notebook
+python generate_notebook_day4.py
 ```
+
+---
+
+## 🏆 Performance Analytics (Day 4)
+
+### Fund Scorecard — Top 10
+
+| Rank | Fund | Score | 3Y CAGR | Sharpe | Alpha |
+|------|------|-------|---------|--------|-------|
+| 1 | Mirae Asset Large Cap Fund | 86.2 | 33.99% | 1.448 | 26.98% |
+| 2 | ICICI Pru Midcap Fund | 82.2 | 31.77% | 1.180 | 29.26% |
+| 3 | Kotak Flexicap Fund | 82.0 | 29.58% | 1.307 | 27.33% |
+| 4 | HDFC Mid-Cap Opportunities Fund | 80.8 | 32.43% | 1.094 | 27.20% |
+| 5 | ICICI Pru Bluechip Fund (Direct) | 80.0 | 32.48% | 1.026 | 21.19% |
+| 6 | Axis Midcap Fund | 77.0 | 35.10% | 0.998 | 26.08% |
+| 7 | SBI Bluechip Fund | 74.8 | 30.45% | 1.208 | 23.20% |
+| 8 | Mirae Asset Tax Saver Fund | 73.7 | 29.17% | 1.235 | 28.27% |
+| 9 | ABSL Frontline Equity Fund | 68.2 | 28.96% | 1.027 | 21.40% |
+| 10 | SBI Small Cap Fund | 67.4 | 26.66% | 0.945 | 30.34% |
+
+> **Scoring:** 30% 3Y Return + 25% Sharpe + 20% Alpha + 15% Expense Ratio (inverse) + 10% Max Drawdown (inverse)
+
+### Key Metrics
+
+| Metric | Formula | Key Finding |
+|--------|---------|-------------|
+| **Daily Returns** | `NAV_t / NAV_{t-1} - 1` | Mean: 0.06%/day, Slight positive skew, fat tails |
+| **CAGR** | `(NAV_end / NAV_start)^(1/n) - 1` | Top 3Y: Axis Midcap 35.1%, Mirae Large Cap 34.0% |
+| **Sharpe Ratio** | `(Rp - Rf) / σ × √252` | Best: Mirae Large Cap (1.45), Rf = 6.5% |
+| **Sortino Ratio** | `(Rp - Rf) / σ_down × √252` | Best: Mirae Large Cap (2.39) |
+| **Alpha (OLS)** | `Intercept × 252` vs NIFTY 100 | Best: SBI Small Cap (+30.3%) |
+| **Max Drawdown** | `min(NAV / running_max - 1)` | Worst: SBI Small Cap Direct (-52.6%) |
+| **Tracking Error** | `σ(fund - bench) × √252` | ICICI Pru Bluechip: 18.73% (closest to benchmark) |
 
 ---
 
@@ -238,13 +276,16 @@ The project includes **10 analytical queries** in [`sql/queries.sql`](sql/querie
 | **Day 1** | Data ingestion, live NAV fetch, data quality validation | ✅ Complete |
 | **Day 2** | Data cleaning, SQLite star-schema, SQL queries, data dictionary | ✅ Complete |
 | **Day 3** | EDA with 15+ charts, Jupyter notebook, 10 key findings | ✅ Complete |
-| Day 4–5 | Statistical analysis & hypothesis testing | ⬜ Upcoming |
+| **Day 4** | Daily returns, CAGR, Sharpe, Sortino, Alpha/Beta, Max DD, Scorecard, Benchmark comparison | ✅ Complete |
+| Day 5 | Hypothesis testing & statistical analysis | ⬜ Upcoming |
 | Day 6–10 | Advanced analytics & modelling | ⬜ Upcoming |
 | Day 11–20 | Dashboard development | ⬜ Upcoming |
 | Day 21–45 | Final report & presentation | ⬜ Upcoming |
 
 ### Git Commit History
 ```
+e1485fa  Day 4: Performance analytics - Sharpe, Sortino, Alpha/Beta, Scorecard
+5026b98  Update README with full Day 1-3 progress
 0fbee2f  Day 3: EDA complete with 15+ charts
 2bb566b  Cleanup: Remove duplicate root CSVs, PDF and DB binary
 b65e1a1  Day 2: Cleaned data + SQLite DB loaded
@@ -265,7 +306,7 @@ b65e1a1  Day 2: Cleaned data + SQLite DB loaded
 | **Seaborn** | Statistical visualisations (heatmaps, bar charts) |
 | **Matplotlib** | Pie charts, donut charts, area charts |
 | **Requests** | API calls to MFAPI |
-| **SciPy** | Statistical analysis |
+| **SciPy** | Statistical analysis, OLS regression (Alpha/Beta) |
 | **Jupyter / nbformat** | Notebook creation |
 | **Kaleido** | Plotly chart export to PNG |
 
@@ -278,7 +319,10 @@ b65e1a1  Day 2: Cleaned data + SQLite DB loaded
 | [`data_dictionary.md`](data_dictionary.md) | Full column-level documentation for all 11 tables |
 | [`sql/schema.sql`](sql/schema.sql) | Star-schema DDL with indexes |
 | [`sql/queries.sql`](sql/queries.sql) | 10 analytical SQL queries |
-| [`EDA_Analysis.ipynb`](EDA_Analysis.ipynb) | Jupyter notebook with 15+ charts & findings |
+| [`EDA_Analysis.ipynb`](EDA_Analysis.ipynb) | Day 3 — Jupyter notebook with 15+ EDA charts |
+| [`Performance_Analytics.ipynb`](Performance_Analytics.ipynb) | Day 4 — Sharpe, Sortino, Alpha/Beta, Fund Scorecard |
+| [`fund_scorecard.csv`](fund_scorecard.csv) | Composite ranked scorecard for all 40 funds (0–100) |
+| [`alpha_beta.csv`](alpha_beta.csv) | Alpha, Beta, R² for all funds vs NIFTY 100 |
 | [`reports/data_quality_summary.txt`](reports/data_quality_summary.txt) | Day 1 data quality report |
 
 ---
