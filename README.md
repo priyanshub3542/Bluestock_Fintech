@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?logo=plotly&logoColor=white" />
   <img src="https://img.shields.io/badge/Seaborn-Visualisation-76B7B2" />
   <img src="https://img.shields.io/badge/SciPy-Statistics-8CAAE6?logo=scipy&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-Day_4_Complete-brightgreen" />
+  <img src="https://img.shields.io/badge/Status-Dashboard_Complete-brightgreen" />
 </p>
 
 > **Bluestock Fintech Pvt. Ltd.** | Data Analyst Internship  
@@ -28,6 +28,7 @@ An end-to-end **Mutual Fund Analytics Pipeline** covering data ingestion, cleani
 - 📊 **Analyses** with 10 analytical SQL queries (Day 2)
 - 📈 **Visualises** with 15+ charts using Plotly, Seaborn & Matplotlib (Day 3)
 - 🏆 **Ranks** all 40 funds with Sharpe, Sortino, Alpha/Beta, CAGR & Composite Scorecard (Day 4)
+- 🖥️ **Dashboards** built with interactive Python mockups and a Power BI build guide
 - 📖 **Documents** everything in a comprehensive data dictionary (Day 2)
 
 ---
@@ -68,9 +69,16 @@ Bluestock_Fintech/
 │   │   └── 19_benchmark_comparison.png
 │   └── data_quality_summary.txt
 │
-├── notebooks/                        # Jupyter notebooks
-├── dashboard/                        # Interactive dashboards (upcoming)
+├── dashboard/
+│   ├── build_dashboard_mockups.py    # Generates dashboard visuals
+│   ├── POWER_BI_BUILD_GUIDE.md       # Step-by-step DAX and PB setup
+│   ├── dashboard_page1_industry.png
+│   ├── dashboard_page2_performance.png
+│   ├── dashboard_page3_investor.png
+│   ├── dashboard_page4_market.png
+│   └── Dashboard.pdf                 # Compiled dashboard PDF
 │
+├── notebooks/                        # Jupyter notebooks
 ├── data_ingestion.py                 # Day 1: Load & explore all datasets
 ├── live_nav_fetch.py                 # Day 1: Fetch live NAV from MFAPI
 ├── data_cleaning.py                  # Day 2: Clean & validate all datasets
@@ -277,6 +285,7 @@ The project includes **10 analytical queries** in [`sql/queries.sql`](sql/querie
 | **Day 2** | Data cleaning, SQLite star-schema, SQL queries, data dictionary | ✅ Complete |
 | **Day 3** | EDA with 15+ charts, Jupyter notebook, 10 key findings | ✅ Complete |
 | **Day 4** | Daily returns, CAGR, Sharpe, Sortino, Alpha/Beta, Max DD, Scorecard, Benchmark comparison | ✅ Complete |
+| **Dashboard** | Python-generated visual dashboards (PDF+PNGs) and Power BI build guide | ✅ Complete |
 | Day 5 | Hypothesis testing & statistical analysis | ⬜ Upcoming |
 | Day 6–10 | Advanced analytics & modelling | ⬜ Upcoming |
 | Day 11–20 | Dashboard development | ⬜ Upcoming |
@@ -323,6 +332,8 @@ b65e1a1  Day 2: Cleaned data + SQLite DB loaded
 | [`Performance_Analytics.ipynb`](Performance_Analytics.ipynb) | Day 4 — Sharpe, Sortino, Alpha/Beta, Fund Scorecard |
 | [`fund_scorecard.csv`](fund_scorecard.csv) | Composite ranked scorecard for all 40 funds (0–100) |
 | [`alpha_beta.csv`](alpha_beta.csv) | Alpha, Beta, R² for all funds vs NIFTY 100 |
+| [`dashboard/POWER_BI_BUILD_GUIDE.md`](dashboard/POWER_BI_BUILD_GUIDE.md) | DAX formulas and build guide for Power BI |
+| [`dashboard/Dashboard.pdf`](dashboard/Dashboard.pdf) | Compiled 4-page dashboard report |
 | [`reports/data_quality_summary.txt`](reports/data_quality_summary.txt) | Day 1 data quality report |
 
 ---
