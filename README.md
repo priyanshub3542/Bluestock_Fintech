@@ -287,6 +287,9 @@ The project includes **10 analytical queries** in [`sql/queries.sql`](sql/querie
 | **Day 4** | Daily returns, CAGR, Sharpe, Sortino, Alpha/Beta, Max DD, Scorecard, Benchmark comparison | ✅ Complete |
 | **Day 5** | Hypothesis testing, VaR/CVaR, Rolling Sharpe, Cohort & SIP Analytics, HHI Concentration | ✅ Complete |
 | **Dashboard** | Python-generated visual dashboards (PDF+PNGs) and Power BI build guide | ✅ Complete |
+| **Bonus 1** | Streamlit Web App alternative to Power BI (Dashboard with interactive slicers) | ✅ Complete |
+| **Bonus 2** | Markowitz Efficient Frontier portfolio optimization script | ✅ Complete |
+| **Final** | Final Analytics PDF Report and Presentation PPTX (D7 Deliverable) | ✅ Complete |
 | Day 6–10 | Advanced analytics & modelling (Additional) | ⬜ Upcoming |
 | Day 11–20 | Dashboard development | ⬜ Upcoming |
 | Day 21–45 | Final report & presentation | ⬜ Upcoming |
@@ -311,15 +314,40 @@ b65e1a1  Day 2: Cleaned data + SQLite DB loaded
 | **Pandas / NumPy** | Data manipulation & analysis |
 | **SQLAlchemy** | Database ORM & SQLite connection |
 | **SQLite** | Lightweight relational database |
-| **Plotly** | Interactive charts (NAV trends, SIP, Folio growth) |
-| **Seaborn** | Statistical visualisations (heatmaps, bar charts) |
-| **Matplotlib** | Pie charts, donut charts, area charts |
-| **Requests** | API calls to MFAPI |
-| **SciPy** | Statistical analysis, OLS regression (Alpha/Beta) |
-| **Jupyter / nbformat** | Notebook creation |
-| **Kaleido** | Plotly chart export to PNG |
 
----
+## 📂 Repository Structure
+
+```text
+bluestock_mf_capstone/
+├── data/
+│   ├── raw/                      # Original downloaded files
+│   ├── processed/                # Cleaned, merged CSVs
+│   └── db/
+│       └── bluestock_mf.db       # Generated SQLite database
+├── notebooks/
+│   ├── 03_eda_analysis.ipynb
+│   ├── 04_performance_analytics.ipynb
+│   └── 05_advanced_analytics.ipynb
+├── scripts/
+│   ├── etl_pipeline.py           # Combined ingestion, cleaning, and DB loader
+│   ├── live_nav_fetch.py         # Fetch live NAV from MFAPI
+│   ├── compute_metrics.py        # Computes performance & advanced analytics
+│   ├── recommender.py            # CLI script for fund recommendation
+│   ├── markowitz_optimization.py # Bonus: Markowitz Efficient Frontier
+│   └── generate_reports.py       # Script to generate PDF and PPTX
+├── sql/
+│   ├── schema.sql                # Star-schema DDL (11 tables)
+│   └── queries.sql               # Analytical SQL queries
+├── dashboard/
+│   ├── streamlit_app.py          # Bonus: Interactive Streamlit Web App
+│   ├── POWER_BI_BUILD_GUIDE.md
+│   └── Dashboard.pdf
+├── reports/
+│   ├── Final_Report.pdf          # Final Analytical Report (D7)
+│   ├── Presentation.pptx         # Final Slides (D7)
+│   └── charts/                   # Exported PNG charts
+└── README.md
+```
 
 ## 📂 Key Documentation
 
