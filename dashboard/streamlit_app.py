@@ -25,7 +25,7 @@ st.markdown("""
         transform: translateY(-5px);
     }
     h1, h2, h3 { font-family: 'Inter', sans-serif; }
-</style>
+</style>            
 """, unsafe_allow_html=True)
 
 st.title("📈 Bluestock Mutual Fund Analytics")

@@ -28,6 +28,7 @@ An end-to-end **Mutual Fund Analytics Pipeline** covering data ingestion, cleani
 - 📊 **Analyses** with 10 analytical SQL queries (Day 2)
 - 📈 **Visualises** with 15+ charts using Plotly, Seaborn & Matplotlib (Day 3)
 - 🏆 **Ranks** all 40 funds with Sharpe, Sortino, Alpha/Beta, CAGR & Composite Scorecard (Day 4)
+- 🤖 **Advanced Analytics Engine** integrated into an interactive Streamlit Web App (features an AI Fund Recommender, real-time Markowitz Portfolio Optimizer, and 12-month SIP trend forecasting)
 - 🖥️ **Dashboards** built with interactive Python mockups and a Power BI build guide
 - 📖 **Documents** everything in a comprehensive data dictionary (Day 2)
 
@@ -287,12 +288,12 @@ The project includes **10 analytical queries** in [`sql/queries.sql`](sql/querie
 | **Day 4** | Daily returns, CAGR, Sharpe, Sortino, Alpha/Beta, Max DD, Scorecard, Benchmark comparison | ✅ Complete |
 | **Day 5** | Hypothesis testing, VaR/CVaR, Rolling Sharpe, Cohort & SIP Analytics, HHI Concentration | ✅ Complete |
 | **Dashboard** | Python-generated visual dashboards (PDF+PNGs) and Power BI build guide | ✅ Complete |
-| **Bonus 1** | Streamlit Web App alternative to Power BI (Dashboard with interactive slicers) | ✅ Complete |
+| **Bonus 1** | Streamlit Web App with Premium UI, Recommender, Markowitz Optimizer, and Forecasting | ✅ Complete |
 | **Bonus 2** | Markowitz Efficient Frontier portfolio optimization script | ✅ Complete |
 | **Final** | Final Analytics PDF Report and Presentation PPTX (D7 Deliverable) | ✅ Complete |
-| Day 6–10 | Advanced analytics & modelling (Additional) | ⬜ Upcoming |
-| Day 11–20 | Dashboard development | ⬜ Upcoming |
-| Day 21–45 | Final report & presentation | ⬜ Upcoming |
+| Day 6–10 | Advanced analytics & modelling (SIP Forecasting, Markowitz, Recommender integrated) | ✅ Complete |
+| Day 11–20 | Dashboard development (Premium Streamlit Overhaul completed) | ✅ Complete |
+| Day 21–45 | Final report & presentation (Generated via automated Python script) | ✅ Complete |
 
 ### Git Commit History
 ```
