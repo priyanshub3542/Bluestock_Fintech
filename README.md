@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?logo=plotly&logoColor=white" />
   <img src="https://img.shields.io/badge/Seaborn-Visualisation-76B7B2" />
   <img src="https://img.shields.io/badge/SciPy-Statistics-8CAAE6?logo=scipy&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-Dashboard_Complete-brightgreen" />
+  <img src="https://img.shields.io/badge/Status-Day_5_Complete-brightgreen" />
 </p>
 
 > **Bluestock Fintech Pvt. Ltd.** | Data Analyst Internship  
@@ -285,9 +285,9 @@ The project includes **10 analytical queries** in [`sql/queries.sql`](sql/querie
 | **Day 2** | Data cleaning, SQLite star-schema, SQL queries, data dictionary | ✅ Complete |
 | **Day 3** | EDA with 15+ charts, Jupyter notebook, 10 key findings | ✅ Complete |
 | **Day 4** | Daily returns, CAGR, Sharpe, Sortino, Alpha/Beta, Max DD, Scorecard, Benchmark comparison | ✅ Complete |
+| **Day 5** | Hypothesis testing, VaR/CVaR, Rolling Sharpe, Cohort & SIP Analytics, HHI Concentration | ✅ Complete |
 | **Dashboard** | Python-generated visual dashboards (PDF+PNGs) and Power BI build guide | ✅ Complete |
-| Day 5 | Hypothesis testing & statistical analysis | ⬜ Upcoming |
-| Day 6–10 | Advanced analytics & modelling | ⬜ Upcoming |
+| Day 6–10 | Advanced analytics & modelling (Additional) | ⬜ Upcoming |
 | Day 11–20 | Dashboard development | ⬜ Upcoming |
 | Day 21–45 | Final report & presentation | ⬜ Upcoming |
 
@@ -330,8 +330,11 @@ b65e1a1  Day 2: Cleaned data + SQLite DB loaded
 | [`sql/queries.sql`](sql/queries.sql) | 10 analytical SQL queries |
 | [`EDA_Analysis.ipynb`](EDA_Analysis.ipynb) | Day 3 — Jupyter notebook with 15+ EDA charts |
 | [`Performance_Analytics.ipynb`](Performance_Analytics.ipynb) | Day 4 — Sharpe, Sortino, Alpha/Beta, Fund Scorecard |
+| [`Advanced_Analytics.ipynb`](Advanced_Analytics.ipynb) | Day 5 — VaR/CVaR, Cohort Analysis, SIP Continuity, HHI, and 5 Key Insights |
 | [`fund_scorecard.csv`](fund_scorecard.csv) | Composite ranked scorecard for all 40 funds (0–100) |
 | [`alpha_beta.csv`](alpha_beta.csv) | Alpha, Beta, R² for all funds vs NIFTY 100 |
+| [`var_cvar_report.csv`](var_cvar_report.csv) | VaR, CVaR, and Sector HHI concentration metrics for all funds |
+| [`recommender.py`](recommender.py) | CLI script recommending top 3 funds based on risk appetite |
 | [`dashboard/POWER_BI_BUILD_GUIDE.md`](dashboard/POWER_BI_BUILD_GUIDE.md) | DAX formulas and build guide for Power BI |
 | [`dashboard/Dashboard.pdf`](dashboard/Dashboard.pdf) | Compiled 4-page dashboard report |
 | [`reports/data_quality_summary.txt`](reports/data_quality_summary.txt) | Day 1 data quality report |
